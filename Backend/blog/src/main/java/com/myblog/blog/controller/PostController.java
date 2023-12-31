@@ -1,29 +1,25 @@
 package com.myblog.blog.controller;
 
-import com.myblog.blog.model.Post;
-import com.myblog.blog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.util.List;
+import com.myblog.blog.model.Post; // Adjust the package path if needed
+import com.myblog.blog.repository.PostRepository; // Adjust the package path if needed
 
 @RestController
-@RequestMapping("/api/posts")
-@CrossOrigin(origins = "http://localhost:3000") // Replace with your React app's URL
+@RequestMapping("/api/posts") // Optional base path for API
 public class PostController {
 
     @Autowired
-    private PostService postService;
+    private PostRepository postRepository;
 
-    // Define your API endpoints here
-    @GetMapping
-    public List<Post> getAllPosts() {
-        return postService.getAllPosts();
-    }
     @PostMapping
-    public Post createPost(@RequestBody Post post) {
-        return postService.createPost(post);
+    public ResponseEntity<Post> createPost(@RequestBody Post newPost) {
+        Post savedPost = postRepository.save(newPost);
+        return ResponseEntity.ok(savedPost);
     }
 
+    // Other methods for fetching, updating, deleting posts
 }
+
