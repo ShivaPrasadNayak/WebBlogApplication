@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.myblog.blog.model.Post; // Adjust the package path if needed
+import com.myblog.blog.model.PostClass; // Adjust the package path if needed
 import com.myblog.blog.repository.PostRepository; // Adjust the package path if needed
 
 @RestController
@@ -15,8 +15,8 @@ public class PostController {
     private PostRepository postRepository;
 
     @PostMapping
-    public ResponseEntity<Post> createPost(@RequestBody Post newPost) {
-        Post savedPost = postRepository.save(newPost);
+    public ResponseEntity<PostClass> createPost(@RequestBody PostClass newPost) {
+        PostClass savedPost = postRepository.save(newPost);
         return ResponseEntity.ok(savedPost);
     }
 
