@@ -48,27 +48,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-		    <groupId>org.hibernate</groupId>
-		    <artifactId>hibernate-entitymanager</artifactId>
-		    <version>5.6.12.Final</version> 
-		    <exclusions>
-
-    
-			<exclusion>
-			
-			      
-			<groupId>org.hibernate</groupId>
-			
-			      
-			<artifactId>hibernate-core</artifactId>
-			
-			    
-			</exclusion>
-			
-			  
-			</exclusions>
-		</dependency>
+		
 
 	</dependencies>
 
